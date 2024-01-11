@@ -1,6 +1,6 @@
 ﻿namespace IBusiness
 {
-    public class Class1
+    public class IArticleBusiness
     {
 
     }
