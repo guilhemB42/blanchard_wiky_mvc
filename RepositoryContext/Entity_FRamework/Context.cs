@@ -23,6 +23,7 @@ namespace RepositoryContext.Entity_FRamework
                 new Commentaire { Id = 1, Auteur="Eve", DateCreation=DateTime.Now, Contenu="Non c'est faux",  ArticleId = 1 },
             };
             modelBuilder.Entity<Article>().HasData(articles);
+            modelBuilder.Entity<Commentaire>().HasData(commentaires);
             base.OnModelCreating(modelBuilder);
         }
     }
