@@ -8,10 +8,10 @@ using RepositoryContext.Entity_FRamework;
 
 #nullable disable
 
-namespace blanchard_wiky_mvc.Migrations
+namespace RepositoryContext.Migrations
 {
-    [DbContext(typeof(CommentaireContext))]
-    partial class CommentaireContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(Context))]
+    partial class ContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -51,7 +51,36 @@ namespace blanchard_wiky_mvc.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Article");
+                    b.ToTable("Articles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Auteur = "Alice",
+                            Contenu = "Lorem Ipsum",
+                            DateCreation = new DateTime(2024, 1, 11, 16, 39, 49, 267, DateTimeKind.Local).AddTicks(8755),
+                            DateModification = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Theme = "Faux Texte"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Auteur = "Bob",
+                            Contenu = "Très belle ville",
+                            DateCreation = new DateTime(2024, 1, 6, 16, 39, 49, 267, DateTimeKind.Local).AddTicks(8849),
+                            DateModification = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Theme = "Montpellier"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Auteur = "Charlie",
+                            Contenu = "Coin coin",
+                            DateCreation = new DateTime(2023, 11, 11, 16, 39, 49, 267, DateTimeKind.Local).AddTicks(8853),
+                            DateModification = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Theme = "Canard"
+                        });
                 });
 
             modelBuilder.Entity("Entities.Commentaire", b =>

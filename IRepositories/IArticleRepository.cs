@@ -8,6 +8,6 @@ namespace IRepositories
         Task<Article> GetByIdAsync(int id);
         Task<Article> CreateAsync(Article article);
         Task<Article> UpdateAsync(Article article);
-        Task<Article> DeleteByIdAsync();
+        Task<Article> DeleteByIdAsync(int id);
     }
 }

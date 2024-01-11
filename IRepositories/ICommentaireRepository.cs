@@ -6,8 +6,8 @@ namespace IRepositories
     {
         Task<List<Commentaire>> GetAllAsync();
         Task<Commentaire> GetByIdAsync(int id);
-        Task<Commentaire> CreateAsync(Article article);
-        Task<Commentaire> UpdateAsync(Article article);
-        Task<Commentaire> DeleteByIdAsync();
+        Task<Commentaire> CreateAsync(Commentaire commentaire);
+        Task<Commentaire> UpdateAsync(Commentaire commentaire);
+        Task<Commentaire> DeleteByIdAsync(int id);
     }
 }

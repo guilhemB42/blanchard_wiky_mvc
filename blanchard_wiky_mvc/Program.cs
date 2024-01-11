@@ -8,13 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<CommentaireContext>( o=>
-    { 
-    o.UseSqlServer(builder.Configuration.GetConnectionString("wiki_gui"), b=>b.MigrationsAssembly("blanchard_wiky_mvc"));
-});
-builder.Services.AddDbContext<ArticleContext>(o =>
+
+builder.Services.AddDbContext<Context>(o =>
 {
-    o.UseSqlServer(builder.Configuration.GetConnectionString("wiki_gui"), b => b.MigrationsAssembly("blanchard_wiki_mvc"));
+    o.UseSqlServer(builder.Configuration.GetConnectionString("wiki_gui"));
 });
 
 builder.Services.AddScoped<IArticleRepository, ArticleRepository>();

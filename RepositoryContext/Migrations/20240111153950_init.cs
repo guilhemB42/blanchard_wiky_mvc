@@ -3,7 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace blanchard_wiky_mvc.Migrations
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
+namespace RepositoryContext.Migrations
 {
     /// <inheritdoc />
     public partial class init : Migration
@@ -12,7 +14,7 @@ namespace blanchard_wiky_mvc.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Article",
+                name: "Articles",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -25,7 +27,7 @@ namespace blanchard_wiky_mvc.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Article", x => x.Id);
+                    table.PrimaryKey("PK_Articles", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -44,11 +46,21 @@ namespace blanchard_wiky_mvc.Migrations
                 {
                     table.PrimaryKey("PK_Commentaires", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Commentaires_Article_ArticleId",
+                        name: "FK_Commentaires_Articles_ArticleId",
                         column: x => x.ArticleId,
-                        principalTable: "Article",
+                        principalTable: "Articles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Articles",
+                columns: new[] { "Id", "Auteur", "Contenu", "DateCreation", "DateModification", "Theme" },
+                values: new object[,]
+                {
+                    { 1, "Alice", "Lorem Ipsum", new DateTime(2024, 1, 11, 16, 39, 49, 267, DateTimeKind.Local).AddTicks(8755), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Faux Texte" },
+                    { 2, "Bob", "Très belle ville", new DateTime(2024, 1, 6, 16, 39, 49, 267, DateTimeKind.Local).AddTicks(8849), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Montpellier" },
+                    { 3, "Charlie", "Coin coin", new DateTime(2023, 11, 11, 16, 39, 49, 267, DateTimeKind.Local).AddTicks(8853), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Canard" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -64,7 +76,7 @@ namespace blanchard_wiky_mvc.Migrations
                 name: "Commentaires");
 
             migrationBuilder.DropTable(
-                name: "Article");
+                name: "Articles");
         }
     }
 }
