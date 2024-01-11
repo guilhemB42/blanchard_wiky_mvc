@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 
 namespace Entities
@@ -14,6 +15,7 @@ namespace Entities
         public DateTime DateModification { get; set; }
         [StringLength(100)]
         public string Contenu { get; set; }
+        [ForeignKey("Article")]
         public int ArticleId { get; set; }
         public Article Article { get; set; }
 

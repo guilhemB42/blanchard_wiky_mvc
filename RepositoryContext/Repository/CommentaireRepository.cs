@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using IRepositories;
 namespace RepositoryContext.Repository
 {
-    internal class CommentaireRepository
+    public class CommentaireRepository : ICommentaireRepository
     {
     }
 }
