@@ -1,5 +1,6 @@
 using IRepositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using RepositoryContext.Entity_FRamework;
 using RepositoryContext.Repository;
 
@@ -7,11 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDdContext<CommentaireContext>( o=>
+builder.Services.AddDbContext<CommentaireContext>( o=>
     { 
     o.UseSqlServer(builder.Configuration.GetConnectionString("wiki_gui"), b=>b.MigrationsAssembly("blanchard_wiky_mvc"));
 });
-builder.Services.AddDdContext<ArticleContext>(o =>
+builder.Services.AddDbContext<ArticleContext>(o =>
 {
     o.UseSqlServer(builder.Configuration.GetConnectionString("wiki_gui"), b => b.MigrationsAssembly("blanchard_wiki_mvc"));
 });
