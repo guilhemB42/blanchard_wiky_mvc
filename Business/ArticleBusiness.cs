@@ -22,7 +22,7 @@ namespace Business
             return _articleRepository.CreateAsync(article);
         }
 
-        public Task<Article> DeleteByIdAsync(int id)
+        public Task DeleteByIdAsync(int id)
         {
             return _articleRepository.DeleteByIdAsync(id);
         }
