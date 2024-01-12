@@ -1,37 +1,42 @@
 ﻿using Entities;
 using IBusiness;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using IRepositories;
+
 namespace Business
 {
     public class CommentaireBusiness : ICommentaireBusiness
     {
+        ICommentaireRepository _commentaireRepository { get; }
+
+        public CommentaireBusiness(ICommentaireRepository commentaireRepository) { 
+            _commentaireRepository = commentaireRepository;
+        }
         public Task<Commentaire> CreateAsync(Commentaire commentaire)
         {
-            throw new NotImplementedException();
+            commentaire.DateCreation = DateTime.Now;
+            commentaire.DateModification = DateTime.Now;
+            return _commentaireRepository.CreateAsync(commentaire);
         }
 
-        public Task<Commentaire> DeleteByIdAsync(int id)
+        public Task DeleteByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return _commentaireRepository.DeleteByIdAsync(id);
         }
 
         public Task<List<Commentaire>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return _commentaireRepository.GetAllAsync();
         }
 
         public Task<Commentaire> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return _commentaireRepository.GetByIdAsync(id);
         }
 
         public Task<Commentaire> UpdateAsync(Commentaire commentaire)
         {
-            throw new NotImplementedException();
+            commentaire.DateModification = DateTime.Now;
+            return _commentaireRepository.UpdateAsync(commentaire);
         }
     }
 }

@@ -15,7 +15,6 @@ namespace RepositoryContext.Repository
         {
             commentaireContext.Commentaires.Add(commentaire);
             await commentaireContext.SaveChangesAsync();
-
             return commentaire;
         }
 
@@ -33,12 +32,16 @@ namespace RepositoryContext.Repository
 
         public async Task<Commentaire> GetByIdAsync(int id)
         {
-            return await commentaireContext.Commentaires.FindAsync(id);
+            return await commentaireContext.Commentaires.Include(c=>c.Article).FirstOrDefaultAsync(c => c.Id == id);
         }
 
-        public Task<Commentaire> UpdateAsync(Commentaire commentaire)
+        public async Task<Commentaire> UpdateAsync(Commentaire commentaire)
         {
-            throw new NotImplementedException();
+            Commentaire commentaireToEdit = commentaireContext.Commentaires.Find(commentaire.Id);
+            commentaireToEdit.Contenu = commentaire.Contenu;
+            commentaireToEdit.DateModification = commentaire.DateModification;
+            await commentaireContext.SaveChangesAsync();
+            return commentaire;
         }
     }
 }
