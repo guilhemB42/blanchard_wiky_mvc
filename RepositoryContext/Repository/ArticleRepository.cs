@@ -41,9 +41,12 @@ namespace RepositoryContext.Repository
             return await articleContext.Articles.AnyAsync(a=> a.Theme == theme);
         }
 
-        public Task<Article> UpdateAsync(Article article)
+        public async Task<Article> UpdateAsync(Article article)
         {
-            throw new NotImplementedException();
+            Article articleToEdit = articleContext.Articles.Find(article.Id);
+            articleToEdit.Contenu = article.Contenu;
+            await articleContext.SaveChangesAsync();
+            return article;
         }
     }
 }

@@ -31,17 +31,16 @@ namespace blanchard_wiky_mvc.Controllers
         {
             return View();
         }
-        public async Task<ActionResult> CheckUniqueTheme(string theme)
+        public async Task<IActionResult> CheckUniqueTheme(string theme)
         {
             bool res = await articleBusiness.IsUniqueAsync(theme);
             return Json(!res);
         }
         [HttpPost]
         public async Task<IActionResult> Create(Article article) {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid || await articleBusiness.IsUniqueAsync(article.Theme))
             {
-                ModelState.AddModelError("Name", "ERROR MODEL STATE");
-                return View(article);
+              return View(article);
             }
             else { 
                 article = await articleBusiness.CreateAsync(article);
@@ -51,7 +50,17 @@ namespace blanchard_wiky_mvc.Controllers
             }
 
         }
-
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            Article article = await articleBusiness.GetByIdAsync(id);
+            return View(article);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(Article article) { 
+            article = await articleBusiness.UpdateAsync(article);
+            return RedirectToAction("Edit", new { Id = article.Id });
+        }
         public async Task<IActionResult> Delete(int id) { 
             await articleBusiness.DeleteByIdAsync(id);
             return RedirectToAction("Index");

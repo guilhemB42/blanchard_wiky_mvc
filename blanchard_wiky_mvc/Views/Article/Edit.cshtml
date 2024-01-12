@@ -1,0 +1,24 @@
+﻿@model Article
+
+
+<form asp-action="Edit">
+    <div class="form-group">
+        <input type="text" asp-for="Id" class="form-control" placeholder="Entrez votre nom" hidden/>
+
+
+        <label asp-for="Auteur">Auteur</label>
+        <input type="text" asp-for="Auteur" class="form-control" placeholder="Entrez votre nom" disabled/>
+        <span asp-validation-for="Auteur" class="text-danger"></span>
+
+        <label asp-for="Theme">Theme</label>
+        <input type="text" asp-for="Theme" class="form-control" placeholder="Entrez le theme" disabled/>
+        <span asp-validation-for="Theme" class="text-danger"></span>
+
+        <label asp-for="Contenu">Contenu</label>
+        <input type="text" asp-for="Contenu" class="form-control" placeholder="Entrez votre contenu" />
+        <span asp-validation-for="Contenu" class="text-danger"></span>
+
+
+    </div>
+    <button class="btn btn-primary">Editer l'article</button>
+</form>
