@@ -14,8 +14,7 @@
         <h3>Commentaire</h3>
         @foreach(Commentaire commentaire in commentaires)
         {
-            <div>@commentaire.Auteur, le @commentaire.DateCreation</div>
-            <div>@commentaire.Contenu</div>
+            <partial name="_displayUnCommentaire" model="commentaire" />
         }
     </div>
 
