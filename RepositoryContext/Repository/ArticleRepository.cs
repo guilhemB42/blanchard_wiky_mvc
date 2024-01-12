@@ -34,6 +34,11 @@ namespace RepositoryContext.Repository
             return await articleContext.Articles.Include(a => a.Comments).FirstOrDefaultAsync(a => a.Id == id);
         }
 
+        public async Task<bool> IsUniqueAsync(string theme)
+        {
+            return await articleContext.Articles.AnyAsync(a=> a.Theme == theme);
+        }
+
         public Task<Article> UpdateAsync(Article article)
         {
             throw new NotImplementedException();

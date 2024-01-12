@@ -9,5 +9,6 @@ namespace IRepositories
         Task<Article> CreateAsync(Article article);
         Task<Article> UpdateAsync(Article article);
         Task<Article> DeleteByIdAsync(int id);
+        Task<bool> IsUniqueAsync(string theme);
     }
 }

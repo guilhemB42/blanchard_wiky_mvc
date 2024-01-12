@@ -12,6 +12,6 @@ namespace Entities
         public DateTime DateCreation { get; set; }
         public DateTime DateModification { get; set; }
         public string Contenu { get; set; }
-        public List<Commentaire> Comments { get; set; }
+        public List<Commentaire>? Comments { get; set; }
     }
 }
