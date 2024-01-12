@@ -51,5 +51,10 @@ namespace blanchard_wiky_mvc.Controllers
             }
 
         }
+
+        public async Task<IActionResult> Delete(int id) { 
+            await articleBusiness.DeleteByIdAsync(id);
+            return RedirectToAction("Index");
+        }
     }
 }
