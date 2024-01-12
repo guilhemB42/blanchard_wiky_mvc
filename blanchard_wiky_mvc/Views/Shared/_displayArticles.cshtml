@@ -7,6 +7,10 @@
             <th>Theme</th>
             <th>Auteur</th>
             <th>Contenu</th>
+            <th>CréaTime</th>
+            <th>EditTime</th>
+            <th>Detail</th>
+            <th>Edit</th>
         </tr>
     </thead>
     <tbody id="contentArticles">
@@ -24,6 +28,12 @@
                 </td>
                 <td>
                     @article.Contenu
+                </td>
+                <td>
+                    @article.DateCreation
+                </td>
+                <td>
+                    @article.DateModification
                 </td>
                 <td>
                     <a asp-action="Detail" asp-route-Id="@article.Id">Detail</a>

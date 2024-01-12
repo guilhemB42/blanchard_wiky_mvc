@@ -44,6 +44,7 @@ namespace Business
 
         public Task<Article> UpdateAsync(Article article)
         {
+            article.DateModification = DateTime.Now;
             return _articleRepository.UpdateAsync(article);
         }
     }

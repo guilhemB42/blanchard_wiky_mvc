@@ -45,6 +45,7 @@ namespace RepositoryContext.Repository
         {
             Article articleToEdit = articleContext.Articles.Find(article.Id);
             articleToEdit.Contenu = article.Contenu;
+            articleToEdit.DateModification = article.DateModification;
             await articleContext.SaveChangesAsync();
             return article;
         }

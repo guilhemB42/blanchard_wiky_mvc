@@ -44,8 +44,6 @@ namespace blanchard_wiky_mvc.Controllers
             }
             else { 
                 article = await articleBusiness.CreateAsync(article);
-                article.DateCreation=DateTime.Now;
-                article.DateModification=DateTime.Now;
                 return RedirectToAction("Detail", new { Id = article.Id });
             }
 
