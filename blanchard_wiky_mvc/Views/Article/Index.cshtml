@@ -1,5 +1,6 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model List<Article>
+<h1>Articles</h1>
+
+<div id="divContentPets">
+    <partial name="_displayArticles" model="Model"/>
+</div>

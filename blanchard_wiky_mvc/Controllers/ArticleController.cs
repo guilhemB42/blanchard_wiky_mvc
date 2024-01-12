@@ -17,5 +17,11 @@ namespace blanchard_wiky_mvc.Controllers
         public async Task<IActionResult> GetAllJson() { 
             return PartialView("_displayArticles", await articleRepository.GetAllAsync());
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Detail(int Id) { 
+            return View(await articleRepository.GetByIdAsync(Id));
+        }
+
     }
 }
