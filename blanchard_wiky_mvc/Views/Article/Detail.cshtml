@@ -23,6 +23,7 @@
             <partial name="_displayUnCommentaire" model="commentaire" />
         }
     </div>
+    <a type="button" class="btn btn-warning" asp-action="Edit" asp-route-Id="@Model.Id">Editer cet article</a>
     <a type="button" class="btn btn-danger" asp-action="Delete" asp-route-Id="@Model.Id">Supprimer cet article</a>
 
 </div>
