@@ -19,9 +19,11 @@ namespace RepositoryContext.Repository
             return commentaire;
         }
 
-        public Task<Commentaire> DeleteByIdAsync(int id)
+        public async Task DeleteByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            Commentaire commentaireToDelete = await commentaireContext.Commentaires.FirstOrDefaultAsync(c => c.Id == id);
+            commentaireContext.Commentaires.Remove(commentaireToDelete);
+            await commentaireContext.SaveChangesAsync();
         }
 
         public async Task<List<Commentaire>> GetAllAsync()

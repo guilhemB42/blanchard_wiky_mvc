@@ -19,9 +19,11 @@ namespace RepositoryContext.Repository
             return article;
         }
 
-        public Task<Article> DeleteByIdAsync(int id)
+        public async Task DeleteByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            Article articleToDelete = await articleContext.Articles.FirstOrDefaultAsync(a => a.Id == id);
+            articleContext.Articles.Remove(articleToDelete);
+            await articleContext.SaveChangesAsync();
         }
 
         public async Task<List<Article>> GetAllAsync()
