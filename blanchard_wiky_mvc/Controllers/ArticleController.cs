@@ -1,4 +1,5 @@
 ﻿using Entities;
+using IBusiness;
 using IRepositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,24 +7,24 @@ namespace blanchard_wiky_mvc.Controllers
 {
     public class ArticleController : Controller
     {
-        IArticleRepository articleRepository;
-        public ArticleController(IArticleRepository IarticleRepository) { 
-            articleRepository = IarticleRepository;
+        IBusiness.IArticleBusiness articleBusiness;
+        public ArticleController(IArticleBusiness IarticleBusiness) { 
+            articleBusiness = IarticleBusiness;
         }
         public async Task<IActionResult> Index()
         {
-            return View(await articleRepository.GetAllAsync());
+            return View(await articleBusiness.GetAllAsync());
         }
         [HttpGet]
         public async Task<IActionResult> GetAllJson()
         { 
-            return PartialView("_displayArticles", await articleRepository.GetAllAsync());
+            return PartialView("_displayArticles", await articleBusiness.GetAllAsync());
         }
 
         [HttpGet]
         public async Task<IActionResult> Detail(int Id)
         { 
-            return View(await articleRepository.GetByIdAsync(Id));
+            return View(await articleBusiness.GetByIdAsync(Id));
         }
         [HttpGet]
         public IActionResult Create()
@@ -32,7 +33,7 @@ namespace blanchard_wiky_mvc.Controllers
         }
         public async Task<ActionResult> CheckUniqueTheme(string theme)
         {
-            bool res = await articleRepository.IsUniqueAsync(theme);
+            bool res = await articleBusiness.IsUniqueAsync(theme);
             return Json(!res);
         }
         [HttpPost]
@@ -43,7 +44,9 @@ namespace blanchard_wiky_mvc.Controllers
                 return View(article);
             }
             else { 
-                article = await articleRepository.CreateAsync(article);
+                article = await articleBusiness.CreateAsync(article);
+                article.DateCreation=DateTime.Now;
+                article.DateModification=DateTime.Now;
                 return RedirectToAction("Detail", new { Id = article.Id });
             }
 

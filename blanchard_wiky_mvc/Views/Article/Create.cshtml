@@ -15,13 +15,6 @@
         <input type="text" asp-for="Contenu" class="form-control" placeholder="Entrez votre contenu" />
         <span asp-validation-for="Contenu" class="text-danger"></span>
 
-        <label asp-for="DateCreation">Date creation</label>
-        <input type="datetime" asp-for="DateCreation" class="form-control" value="@DateTime.Now"/>
-        <span asp-validation-for="DateCreation" class="text-danger"></span>
-
-        <label asp-for="DateModification">Date creation</label>
-        <input type="datetime" asp-for="DateModification" class="form-control" value="@DateTime.Now" />
-        <span asp-validation-for="DateModification" class="text-danger"></span>
 
     </div>
     <button class="btn btn-primary">Poster l'article</button>

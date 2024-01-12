@@ -1,3 +1,5 @@
+using Business;
+using IBusiness;
 using IRepositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -15,7 +17,9 @@ builder.Services.AddDbContext<Context>(o =>
 });
 
 builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
+builder.Services.AddScoped<IArticleBusiness, ArticleBusiness>();
 builder.Services.AddScoped<ICommentaireRepository, CommentaireRepository>();
+builder.Services.AddScoped<ICommentaireBusiness, CommentaireBusiness>();
 
 var app = builder.Build();
 

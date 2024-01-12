@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Business
 {
-    internal class CommentaireBusiness : ICommentaireBusiness
+    public class CommentaireBusiness : ICommentaireBusiness
     {
         public Task<Commentaire> CreateAsync(Commentaire commentaire)
         {

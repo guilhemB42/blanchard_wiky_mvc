@@ -17,6 +17,8 @@ namespace Business
             if (article.Auteur.Length > 30) {
                 throw new Exception("le nom de l'auteur est trop long");
             }
+            article.DateCreation = DateTime.Now;
+            article.DateModification = DateTime.Now;
             return _articleRepository.CreateAsync(article);
         }
 
