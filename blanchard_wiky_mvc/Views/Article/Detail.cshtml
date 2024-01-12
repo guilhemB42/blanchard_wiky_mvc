@@ -1,11 +1,22 @@
 ﻿@model Article
+@{
+    List<Commentaire> commentaires = Model.Comments;
+}
 
-<div class="card">
-    <div class="card-header">
-        @Model.Theme
+<div>
+    <div>
+        <h3>@Model.Theme</h3> <h4>Rédigé par @Model.Auteur, le @Model.DateCreation</h4>
     </div>
-    <div class="card-body">
-        <h5 class="card-title">@Model.Contenu</h5>
+    <div>
+        @Model.Contenu
+    </div>
+    <div>
+        <h3>Commentaire</h3>
+        @foreach(Commentaire commentaire in commentaires)
+        {
+            <div>@commentaire.Auteur, le @commentaire.DateCreation</div>
+            <div>@commentaire.Contenu</div>
+        }
     </div>
 
 </div>
