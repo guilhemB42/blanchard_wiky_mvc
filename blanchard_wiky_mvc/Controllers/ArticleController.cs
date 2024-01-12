@@ -1,13 +1,12 @@
 ﻿using Entities;
 using IBusiness;
-using IRepositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace blanchard_wiky_mvc.Controllers
 {
     public class ArticleController : Controller
     {
-        IBusiness.IArticleBusiness articleBusiness;
+        IArticleBusiness articleBusiness;
         public ArticleController(IArticleBusiness IarticleBusiness) { 
             articleBusiness = IarticleBusiness;
         }
