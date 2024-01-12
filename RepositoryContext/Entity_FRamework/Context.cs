@@ -21,6 +21,7 @@ namespace RepositoryContext.Entity_FRamework
             };
             List<Commentaire> commentaires = new() {
                 new Commentaire { Id = 1, Auteur="Eve", DateCreation=DateTime.Now, Contenu="Non c'est faux",  ArticleId = 1 },
+                new Commentaire { Id = 2, Auteur="Eve", DateCreation=DateTime.Now, Contenu="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",  ArticleId = 1 }
             };
             modelBuilder.Entity<Article>().HasData(articles);
             modelBuilder.Entity<Commentaire>().HasData(commentaires);
