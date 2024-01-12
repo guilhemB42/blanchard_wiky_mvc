@@ -54,11 +54,13 @@ namespace blanchard_wiky_mvc.Controllers
             return View(article);
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(Article article) { 
+        public async Task<IActionResult> Edit(Article article)
+        { 
             article = await articleBusiness.UpdateAsync(article);
             return RedirectToAction("Detail", new { Id = article.Id });
         }
-        public async Task<IActionResult> Delete(int id) { 
+        public async Task<IActionResult> Delete(int id)
+        { 
             await articleBusiness.DeleteByIdAsync(id);
             return RedirectToAction("Index");
         }
