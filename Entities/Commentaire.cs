@@ -17,7 +17,7 @@ namespace Entities
         public string Contenu { get; set; }
         [ForeignKey("Article")]
         public int ArticleId { get; set; }
-        public Article Article { get; set; }
+        public Article? Article { get; set; }
 
 
     }

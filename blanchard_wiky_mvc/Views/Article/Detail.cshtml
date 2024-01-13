@@ -17,6 +17,11 @@
         @Model.Contenu
     </div>
     <div>
+        <h3>Commentez</h3>
+        <a type="button" class="btn btn-primary" asp-controller="Commentaire" asp-action="Create">Ajouter un commentaire</a>
+    </div>
+
+    <div>
         <h3>Commentaire</h3>
         @foreach(Commentaire commentaire in commentaires)
         {

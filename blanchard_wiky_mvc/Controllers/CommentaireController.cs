@@ -32,8 +32,9 @@ namespace blanchard_wiky_mvc.Controllers
             }
             else
             {
+
                 commentaire = await commentaireBusiness.CreateAsync(commentaire);
-                return RedirectToAction("Detail", new { Id = commentaire.Id });
+                return RedirectToAction("Index","Article");
             }
 
         }

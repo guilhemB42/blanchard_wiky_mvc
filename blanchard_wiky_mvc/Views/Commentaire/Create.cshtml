@@ -1,0 +1,22 @@
+﻿@model Commentaire
+
+
+<form asp-action="Create">
+    <div class="form-group">
+
+        <label asp-for="ArticleId">Numero de l'article a commenter</label>
+        <input type="number" asp-for="ArticleId" class="form-control" placeholder="Entrez le numero de l'article'" />
+        <span asp-validation-for="ArticleId" class="text-danger"></span>
+
+        <label asp-for="Auteur">Auteur</label>
+        <input type="text" asp-for="Auteur" class="form-control" placeholder="Entrez votre nom" />
+        <span asp-validation-for="Auteur" class="text-danger"></span>
+
+        <label asp-for="Contenu">Contenu</label>
+        <input type="text" asp-for="Contenu" class="form-control" placeholder="Entrez votre contenu" />
+        <span asp-validation-for="Contenu" class="text-danger"></span>
+
+
+    </div>
+    <button class="btn btn-primary">Poster le commentaire</button>
+</form>
