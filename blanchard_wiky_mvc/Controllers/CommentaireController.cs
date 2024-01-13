@@ -51,8 +51,10 @@ namespace blanchard_wiky_mvc.Controllers
         }
         public async Task<IActionResult> Delete(int id)
         {
+            Commentaire commentaire = await commentaireBusiness.GetByIdAsync(id);
+            Article articleOfCommentaire = commentaire.Article;
             await commentaireBusiness.DeleteByIdAsync(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("Detail","Article",new { Id = articleOfCommentaire.Id});
         }
 
 
