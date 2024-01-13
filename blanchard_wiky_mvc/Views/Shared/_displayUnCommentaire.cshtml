@@ -13,6 +13,7 @@
     <div>
         @Model.Contenu
     </div>
+    <a type="button" class="btn btn-warning" asp-controller="Commentaire" asp-action="Edit" asp-route-Id="@Model.Id">Editer ce commentaire</a>
 
     <a type="button" class="btn btn-danger" asp-controller="Commentaire" asp-action="Delete" asp-route-Id="@Model.Id">Supprimer ce commentaire</a>
 
