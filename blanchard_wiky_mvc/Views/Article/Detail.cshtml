@@ -1,6 +1,7 @@
 ﻿@model Article
 @{
     List<Commentaire> commentaires = Model.Comments;
+    TempData["articleToComment"] = Model.Id;
 }
 
 <div>

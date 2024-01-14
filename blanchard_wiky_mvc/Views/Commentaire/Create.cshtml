@@ -4,9 +4,7 @@
 <form asp-action="Create">
     <div class="form-group">
 
-        <label asp-for="ArticleId">Numero de l'article a commenter</label>
-        <input type="number" asp-for="ArticleId" class="form-control" placeholder="Entrez le numero de l'article" />
-        <span asp-validation-for="ArticleId" class="text-danger"></span>
+        <input type="number" asp-for="ArticleId" class="form-control" value="@TempData["articleToComment"]" hidden/>
 
         <label asp-for="Auteur">Auteur</label>
         <input type="text" asp-for="Auteur" class="form-control" placeholder="Entrez votre nom" />
