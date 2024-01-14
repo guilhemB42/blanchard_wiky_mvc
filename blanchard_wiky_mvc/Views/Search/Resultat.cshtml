@@ -2,11 +2,20 @@
 
 @{
     List<Article> contientTherme = new();
+    string motRecherche;
+    if (Model.val == null)
+    {
+        motRecherche = "";
+    }
+    else
+    {
+        motRecherche = Model.val;  
+    }
 }
 
 @foreach(Article article in Model.Articles)
 {
-    if (article.Contenu.Contains(Model.val) || article.Theme.Contains(Model.val))
+    if (article.Contenu.Contains(motRecherche) || article.Theme.Contains(motRecherche))
     {
         contientTherme.Add(article);    
     }    
