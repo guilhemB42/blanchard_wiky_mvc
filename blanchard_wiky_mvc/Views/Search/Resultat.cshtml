@@ -1,6 +1,18 @@
-﻿@model List<Article>
+﻿@model SearchRequest
 
-@foreach (Article article in Model)
+@{
+    List<Article> contientTherme = new();
+}
+
+@foreach(Article article in Model.Articles)
+{
+    if (article.Contenu.Contains(Model.val) || article.Theme.Contains(Model.val))
+    {
+        contientTherme.Add(article);    
+    }    
+}
+
+@foreach (Article article in contientTherme)
 {
     <partial name="_displayUnArticle" model="article" />
 }

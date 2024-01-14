@@ -1,10 +1,9 @@
-﻿@model SearchVal
+﻿@model SearchRequest
 
 <form asp-action="Resultat">
     <div class="form-group">
         <label asp-for="val">Texte à chercher</label>
         <input type="text" asp-for="val" class="form-control" placeholder="Cherchez"/>
     </div>
-    <button class="btn btn-primary">Rechercher</button>
-    TempData["Search"]
+    <button class="btn btn-primary" asp-action="Resultat" asp-route-search="@Model">Rechercher</button>
 </form>

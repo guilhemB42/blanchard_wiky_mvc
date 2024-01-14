@@ -1,4 +1,5 @@
-﻿using IBusiness;
+﻿using Entities;
+using IBusiness;
 using Microsoft.AspNetCore.Mvc;
 
 namespace blanchard_wiky_mvc.Controllers
@@ -16,8 +17,10 @@ namespace blanchard_wiky_mvc.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Resultat() {
-            return View(await articleBusiness.GetAllAsync());
+        public async Task<IActionResult> Resultat(SearchRequest search) {
+            List<Article> articles = await articleBusiness.GetAllAsync();
+            search.Articles = articles;
+            return View(search);
         }
 
     }

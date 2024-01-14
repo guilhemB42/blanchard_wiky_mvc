@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public  class SearchVal
+    public  class SearchRequest
+
     {
+        public List<Article> Articles {  get; set; }
         public string val { get; set; }
     }
 }
