@@ -11,7 +11,7 @@ namespace blanchard_wiky_mvc.Controllers
         public SearchController(IArticleBusiness IarticleBusiness) { 
             articleBusiness = IarticleBusiness;
         }
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             return View();
         }
