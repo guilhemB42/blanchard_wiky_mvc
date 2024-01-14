@@ -3,11 +3,11 @@
 
 <form asp-action="Edit">
     <div class="form-group">
-        <input type="text" asp-for="Id" class="form-control" placeholder="Entrez votre nom" hidden />
+        <input type="text" asp-for="Id" class="form-control" hidden />
 
 
         <label asp-for="Auteur">Auteur</label>
-        <input type="text" asp-for="Auteur" class="form-control" placeholder="Entrez votre nom" disabled />
+        <input type="text" asp-for="Auteur" class="form-control" disabled />
         <span asp-validation-for="Auteur" class="text-danger"></span>
 
         <label asp-for="Contenu">Contenu</label>
@@ -16,5 +16,5 @@
 
 
     </div>
-    <button class="btn btn-primary">Editer l'article</button>
+    <button class="btn btn-primary">Editer le commentaire</button>
 </form>
