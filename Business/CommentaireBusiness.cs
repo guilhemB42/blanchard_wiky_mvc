@@ -13,6 +13,12 @@ namespace Business
         }
         public Task<Commentaire> CreateAsync(Commentaire commentaire)
         {
+            if (commentaire.Auteur.Length > 30) {
+                throw new Exception("le nom de l'auteur du comm est trop long");
+            }
+            if (commentaire.Contenu.Length > 100) {
+                throw new Exception("le contenu du comm est trop long");
+            }
             commentaire.DateCreation = DateTime.Now;
             commentaire.DateModification = DateTime.Now;
             return _commentaireRepository.CreateAsync(commentaire);
