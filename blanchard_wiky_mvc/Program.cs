@@ -2,7 +2,6 @@ using Business;
 using IBusiness;
 using IRepositories;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using RepositoryContext.Entity_FRamework;
 using RepositoryContext.Repository;
 
