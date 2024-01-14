@@ -1,9 +1,9 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
+﻿@model List<Article>
 <div class="text-center">
     <h1 class="display-4">Bienvenue WikY, créer des articles et commentez les.</h1>
-    Article le plus récent :
-
+    <p> Article le plus récent (édition)</p>
+    @{
+        Article articleLePlusRecent = Model.OrderByDescending(a => a.DateModification).First();
+        <partial name="_displayUnArticle" model="articleLePlusRecent" />
+    }
 </div>
