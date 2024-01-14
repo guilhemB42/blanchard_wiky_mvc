@@ -2,15 +2,7 @@
 
 @{
     List<Article> contientTherme = new();
-    string motRecherche;
-    if (Model.val == null)
-    {
-        motRecherche = "";
-    }
-    else
-    {
-        motRecherche = Model.val;  
-    }
+    string motRecherche= Model.val ?? "";
 }
 
 @foreach(Article article in Model.Articles)
