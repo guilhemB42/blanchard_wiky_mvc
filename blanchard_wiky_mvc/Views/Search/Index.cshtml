@@ -1,5 +1,10 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model SearchVal
+
+<form asp-action="Resultat">
+    <div class="form-group">
+        <label asp-for="val">Texte à chercher</label>
+        <input type="text" asp-for="val" class="form-control" placeholder="Cherchez"/>
+    </div>
+    <button class="btn btn-primary">Rechercher</button>
+    TempData["Search"]
+</form>

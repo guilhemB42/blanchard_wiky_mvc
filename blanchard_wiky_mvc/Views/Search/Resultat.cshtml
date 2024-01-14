@@ -1,0 +1,6 @@
+﻿@model List<Article>
+
+@foreach (Article article in Model)
+{
+    <partial name="_displayUnArticle" model="article" />
+}
