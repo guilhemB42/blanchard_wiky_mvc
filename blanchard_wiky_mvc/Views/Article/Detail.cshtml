@@ -5,17 +5,7 @@
 
 <div>
     <div>
-        <h3>@Model.Theme</h3> <h4>Rédigé par @Model.Auteur, le @Model.DateCreation</h4>
-        @{
-            if (Model.DateCreation.ToString() != Model.DateModification.ToString())
-            {
-            <h4>Edité le @Model.DateModification</h4>    
-            }
-        }
-    </div>
-    <div>
-        @Model.Contenu
-    </div>
+        <partial name="_displayUnArticle" model="@Model"/> 
     <div>
         <h3>Commentez</h3>
         <a type="button" class="btn btn-primary" asp-controller="Commentaire" asp-action="Create">Ajouter un commentaire</a>

@@ -1,43 +1,8 @@
 ﻿@model List<Article>
 
-<table class="table table-striped table-sm table-bordered text-center">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Theme</th>
-            <th>Auteur</th>
-            <th>Contenu</th>
-            <th>CréaTime</th>
-            <th>EditTime</th>
-            <th>Detail</th>
-        </tr>
-    </thead>
-    <tbody id="contentArticles">
-        @foreach (var article in Model)
-        {
-            <tr>
-                <td>
-                    @article.Id
-                </td>
-                <td>
-                    @article.Theme
-                </td>
-                <td>
-                    @article.Auteur
-                </td>
-                <td>
-                    @article.Contenu
-                </td>
-                <td>
-                    @article.DateCreation
-                </td>
-                <td>
-                    @article.DateModification
-                </td>
-                <td>
-                    <a asp-action="Detail" asp-route-Id="@article.Id">Detail</a>
-                </td>
-            </tr>    
-        }
-    </tbody>
-</table>
+@foreach(Article article in Model)
+{
+    <partial name="_displayUnArticle" model="article"/>
+    <a asp-action="Detail" asp-route-Id="@article.Id">Detail</a>
+
+}

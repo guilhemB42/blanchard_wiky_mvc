@@ -1,20 +1,19 @@
 ﻿@model Commentaire
 
-<div>
-    <div>
-        <h4>Rédigé par @Model.Auteur, le @Model.DateCreation</h4>
+<div class="card" style="width: 80%;">
+    <div class="card-body">
+        <h5 class="card-title">Rédigé par @Model.Auteur, le @Model.DateCreation</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
         @{
             if (Model.DateCreation.ToString() != Model.DateModification.ToString())
             {
-                <h4>Edité le @Model.DateModification</h4>
+                <h6>Edité le @Model.DateModification</h6>
             }
         }
+        <p class="card-text">
+            @Model.Contenu
+        </p>
+        <a type="button" class="btn btn-warning" asp-controller="Commentaire" asp-action="Edit" asp-route-Id="@Model.Id">Editer ce commentaire</a>
+        <a type="button" class="btn btn-danger" asp-controller="Commentaire" asp-action="Delete" asp-route-Id="@Model.Id">Supprimer ce commentaire</a>
     </div>
-    <div>
-        @Model.Contenu
-    </div>
-    <a type="button" class="btn btn-warning" asp-controller="Commentaire" asp-action="Edit" asp-route-Id="@Model.Id">Editer ce commentaire</a>
-
-    <a type="button" class="btn btn-danger" asp-controller="Commentaire" asp-action="Delete" asp-route-Id="@Model.Id">Supprimer ce commentaire</a>
-
 </div>
