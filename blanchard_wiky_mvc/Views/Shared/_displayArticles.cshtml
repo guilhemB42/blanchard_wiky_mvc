@@ -1,8 +1,10 @@
 ﻿@model List<Article>
 
-@foreach(Article article in Model)
+@foreach (Article article in Model)
 {
-    <partial name="_displayUnArticle" model="article"/>
-    <a asp-action="Detail" asp-route-Id="@article.Id">Detail</a>
+    <div class="mb-3">
+        <partial name="_displayUnArticle" model="article" />
+        <a asp-action="Detail" asp-route-Id="@article.Id">Detail</a>
+    </div>
 
 }
