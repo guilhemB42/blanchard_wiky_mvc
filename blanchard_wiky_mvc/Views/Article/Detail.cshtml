@@ -7,8 +7,23 @@
 <div>
     <div>
         <partial name="_displayUnArticle" model="@Model"/> 
-    <div>
+    <div class="mb-3">
         <h3>Commentez</h3>
+            <form action="/Commentaire/Create" method="POST" class="mb-3">
+                <div class="form-group">
+
+                    <input type="number" name="ArticleId" class="form-control" value="@Model.Id" hidden />
+
+                    <label for="Auteur">Auteur</label>
+                    <input type="text" name="Auteur" class="form-control" placeholder="Entrez votre nom" />
+
+                    <label for="Contenu">Contenu</label>
+                    <textarea name="Contenu" class="form-control" placeholder="Entrez votre contenu"></textarea>
+
+
+                </div>
+                <button class="btn btn-primary">Poster le commentaire</button>
+            </form>
         <a type="button" class="btn btn-primary" asp-controller="Commentaire" asp-action="Create">Ajouter un commentaire</a>
     </div>
 
