@@ -1,4 +1,5 @@
 using blanchard_wiky_mvc.Models;
+using Entities;
 using IBusiness;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -18,7 +19,9 @@ namespace blanchard_wiky_mvc.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await articleBusiness.GetAllAsync());
+            List<Article> articles = await articleBusiness.GetAllAsync();
+            Article articleLePlusRecent = articles.OrderByDescending(a => a.DateModification).First();
+            return View(articleLePlusRecent);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
