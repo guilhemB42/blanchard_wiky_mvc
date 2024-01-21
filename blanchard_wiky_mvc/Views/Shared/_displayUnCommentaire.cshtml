@@ -1,7 +1,7 @@
 ﻿@model Commentaire
 
 <div class="card mb-3" style="width: 80%;">
-    <div class="card-body">
+    <div class="card-body" id="comm-@Model.Id">
         <h5 class="card-title">Rédigé par @Model.Auteur, le @Model.DateCreation</h5>
         <h6 class="card-subtitle mb-2 text-muted">@Model.DateCreation</h6>
         @{
@@ -15,5 +15,28 @@
         </p>
         <a type="button" class="btn btn-warning" asp-controller="Commentaire" asp-action="Edit" asp-route-Id="@Model.Id">Editer ce commentaire</a>
         <a type="button" class="btn btn-danger" asp-controller="Commentaire" asp-action="Delete" asp-route-Id="@Model.Id">Supprimer ce commentaire</a>
+        <a type="button" class="btn btn-danger" id="suppComm-@Model.Id" data-comment-id="@Model.Id">supp en ajax</a>
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function (d) {
+                const btns = document.querySelectorAll('[id^=suppComm-]');
+                console.log('Nombre de boutons: ' + btns.length);
+                btns.forEach(function (btn) {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        fetch('/Commentaire/Delete?' + new URLSearchParams({ id: btn.dataset.commentId }), {
+                            method: "GET",
+                        }).then((response) => {
+                            if (response.status != 200) {
+                            } else {
+                                location.reload(true);
+                            }
+                        });
+
+                        return false;
+                    })
+                })
+            });
+        </script>
     </div>
 </div>
