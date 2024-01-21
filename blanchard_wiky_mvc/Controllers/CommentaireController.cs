@@ -33,7 +33,7 @@ namespace blanchard_wiky_mvc.Controllers
             {
 
                 commentaire = await commentaireBusiness.CreateAsync(commentaire);
-                return RedirectToAction("Index","Article");
+                return RedirectToAction("Detail", "Article", new { Id = commentaire.ArticleId });
             }
 
         }
@@ -47,7 +47,7 @@ namespace blanchard_wiky_mvc.Controllers
         public async Task<IActionResult> Edit(Commentaire commentaire)
         {
             commentaire = await commentaireBusiness.UpdateAsync(commentaire);
-            return RedirectToAction("Index","Article");
+            return RedirectToAction("Detail","Article",new { Id = commentaire.ArticleId });
         }
         public async Task<IActionResult> Delete(int id)
         {

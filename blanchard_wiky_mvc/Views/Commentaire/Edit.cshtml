@@ -3,8 +3,9 @@
 
 <form asp-action="Edit">
     <div class="form-group">
-        <input type="text" asp-for="Id" class="form-control" hidden />
+        <input type="number" asp-for="ArticleId" class="form-control" value="@TempData["articleToComment"]" hidden />
 
+        <input type="text" asp-for="Id" class="form-control" hidden />
 
         <label asp-for="Auteur">Auteur</label>
         <input type="text" asp-for="Auteur" class="form-control" disabled />
